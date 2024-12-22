@@ -1,0 +1,8 @@
+.CommentContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.CommentContent {
+    white-space: pre-wrap;
+}

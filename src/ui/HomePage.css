@@ -1,0 +1,10 @@
+.HomePageContainer {
+    margin: 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+.RecordingButton {
+    font-size: xx-large;
+    vertical-align: top;
+}

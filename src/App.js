@@ -18,12 +18,12 @@ function App() {
               <Link to="/">Record</Link>
             </li>
             <li>
-              <Link to="/recordings">Recordings</Link>
+              <Link to="/consultations">Consultations</Link>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/recordings" element={<RecordingPage />} />
+          <Route path="/consultations" element={<RecordingPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </div >

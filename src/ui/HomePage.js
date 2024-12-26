@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
-import Comment from '../models/Comment';
-import Recording from '../models/Recording';
+import { SERVER_URL } from '../config.js';
+
+import { Comment } from '../models/Comment';
+import { Recording } from '../models/Recording';
 
 import './HomePage.css';
 import Container from './Container';
@@ -21,7 +23,9 @@ export default function HomePage() {
     const [audio, setAudio] = useState(null);;
     const [canRecord, setCanRecord] = useState(false);
     const [audioStream, setAudioStream] = useState(null);
-    const [recording, setRecording] = useState(Recording());
+    const [recording, setRecording] = useState(new Recording());
+    const [patientName, setPatientName] = useState('');
+    const [note, setNote] = useState('');
     const [comments, setComments] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -43,7 +47,7 @@ export default function HomePage() {
 
     const addComment = (comment) => {
         if (comment && comment.trim().length > 0) {
-            setComments([...comments, Comment(comment)]);
+            setComments([...comments, new Comment(comment)]);
         }
     }
 
@@ -65,11 +69,28 @@ export default function HomePage() {
             const audioBlob = new Blob(audioChunks, { type: AUDIO_MIME_TYPE });
             const audioUrl = URL.createObjectURL(audioBlob);
             setAudio(audioUrl);
-            setAudioChunks([]);
         }
     }
 
-    const transitionReccording = () => {
+    const uploadRecording = async () => {
+        const data = new FormData();
+        const audioFile = new File(audioChunks, 'audio.webm', { type: AUDIO_MIME_TYPE });
+        data.append('file', audioFile);
+        data.append('recordingNote', JSON.stringify({
+            timestamp: recording.startTime,
+            patientName: patientName,
+            note: note,
+            comments: comments
+        }));
+        await fetch(`${SERVER_URL}/records`, {
+            method: 'POST',
+            body: data
+        });
+
+        setAudioChunks([]);
+    }
+
+    const transitionReccording = async () => {
         switch (recording.status) {
             case 'init':
                 setRecording({ ...recording, startTime: Date.now(), label: Unicode.stop, status: 'recording', canComment: true });
@@ -80,8 +101,10 @@ export default function HomePage() {
                 stopRecording();
                 break;
             case 'recorded':
-                // upload
-                setRecording(Recording());
+                await uploadRecording();
+                setRecording(new Recording());
+                setNote('');
+                setPatientName('');
                 setComments([]);
                 break;
         }
@@ -93,6 +116,18 @@ export default function HomePage() {
             <Container>
                 <button className="RecordingButton" disabled={!canRecord} onClick={transitionReccording}>{recording.label}</button>
                 {recording.status === 'recorded' && <audio src={audio} controls />}
+            </Container>
+            <Container>
+                <p>Patient name:</p>
+                <input value={patientName} onChange={e => setPatientName(e.target.value)} />
+            </Container>
+            <Container>
+                <p>Notes:</p>
+                <textarea
+                    rows="8" cols="50"
+                    value={note}
+                    onChange={e => setNote(e.target.value)}
+                />
             </Container>
             <CommentSection
                 disabled={!recording.canComment}

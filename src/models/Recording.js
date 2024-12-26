@@ -1,8 +1,8 @@
-export default function Recording() {
-    return {
-        status: 'init',
-        label: '\u23FA',
-        canComment: false,
-        startTime: Date.now()
+export class Recording {
+    constructor() {
+        this.status = 'init';
+        this.label = '\u23FA';
+        this.canComment = false;
+        this.startTime = Date.now();
     }
 }

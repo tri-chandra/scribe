@@ -14,6 +14,7 @@ export default function CommentSection({ disabled, startTime, comments, onCommen
     return (
         <>
             <Container>
+                <p>Additional comments</p>
                 <textarea
                     rows="8" cols="50"
                     disabled={disabled}
@@ -22,7 +23,7 @@ export default function CommentSection({ disabled, startTime, comments, onCommen
                 />
             </Container>
             <Container>
-                <button disabled={disabled} onClick={() => addComment(comment)}>Comment</button>
+                <button disabled={disabled} onClick={() => addComment(comment)}>Add comment</button>
             </Container>
             <Container>
                 {comments.map(comment => <CommentLineItem key={comment.timestamp} comment={comment} startTime={startTime} />)}

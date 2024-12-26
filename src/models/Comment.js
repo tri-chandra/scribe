@@ -1,6 +1,6 @@
-export default function Comment(content) {
-    return {
-        content,
-        timestamp: Date.now()
+export class Comment {
+    constructor(content) {
+        this.content = content;
+        this.timestamp = Date.now();
     }
 }

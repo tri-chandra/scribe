@@ -8,9 +8,15 @@
 
 ### Frontend
 
-Run:
+Run app:
 ```
+npm install
 npm start
+```
+
+Run tests:
+```
+npm test
 ```
 
 ### Backend
@@ -26,7 +32,19 @@ cd server
 npm start
 ```
 
-## Thought dump
+Run tests:
+```
+cd server
+npm test
+```
+
+## Considerations
+
+Redis pubsub doesnt't have DLQ
+error handling
+pagination, search api, etc
+store data validation
+dto data validation
 
 ### Done
 - FE: recording audio

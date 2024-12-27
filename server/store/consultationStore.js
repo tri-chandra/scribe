@@ -1,3 +1,5 @@
+import crypto from 'node:crypto';
+
 const store = {};
 
 export class Note {
@@ -8,11 +10,12 @@ export class Note {
 }
 
 export class Consultation {
-    constructor(id, patientName, note, audioPath, comments, timestamp) {
-        this.id = id;
+    constructor(patientName, note, comments, timestamp) {
+        this.id = crypto.randomUUID();
+        this.clinicianId = 'dummy';
         this.patientName = patientName;
         this.note = note;
-        this.audioPath = audioPath;
+        this.audioPath = undefined;
         this.comments = comments;
         this.timestamp = timestamp;
         this.transcript = [];
@@ -31,6 +34,10 @@ const upsertConsultation = (record) => {
 
 const getConsultations = () => {
     return Object.values(store).sort((a, b) => { return a.id - b.id; });
+}
+
+export const clearAll = () => {
+    for (const id in store) delete store[id];
 }
 
 export default {

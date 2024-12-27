@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js"
+    "start": "nodemon -r dotenv/config index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +20,8 @@
     "express-fileupload": "^1.5.1",
     "nodemon": "^3.1.9",
     "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

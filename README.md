@@ -47,6 +47,7 @@ npm test
 - Frontend and backend communicates via REST API.
 - Synchronous flow to store recorded audio file and consultation notes.
 - [*Simulated*] Either a separate service/library would handle the conversion from audio -> text.
+    - Currently this is handled by the same backend. However, this can be split into independent workers too.
     - This is represented by a "wrapper" `transcriptService.js`.
     - Audio -> text conversion is done asynchronously via a queue (this is simmulated using redis pubsub).
     - There is no DLQ for redis pubsub, so this part is also simulated via `try .. catch` that would publish a message to the topic "DLQ".

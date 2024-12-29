@@ -14,7 +14,7 @@ export default function CommentSection({ disabled, startTime, comments, onCommen
     return (
         <>
             <Container>
-                <p>Additional comments</p>
+                <p><strong>Additional comments:</strong></p>
                 <textarea
                     rows="8" cols="50"
                     disabled={disabled}

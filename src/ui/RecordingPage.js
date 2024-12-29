@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { SERVER_URL } from '../config.js';
 import PatientCard from './PatientCard.js'
 
+import './RecordingPage.css'
+
 export default function RecordingPage() {
     const [consultations, setConsultations] = useState([]);
     const [selectedConsultationId, setSelectedConsultationId] = useState(null);
@@ -35,18 +37,20 @@ export default function RecordingPage() {
     }
 
     return (
-        <div>
-            <ul>
+        <div className="RecordingPageContainer">
+            <ul className="TranscriptList">
                 {consultations.map(record => (
                     <li key={record.id}>
                         <a href={`#${record.id}`} onClick={e => setSelectedConsultationId(record.id)}>{formatDate(record.timestamp)}</a>
-
                     </li>
                 ))}
             </ul>
-            {consultation && (
-                <PatientCard record={consultation} />
-            )}
+            <div className="ConsultationDetails">
+                {consultation && (
+                    <PatientCard record={consultation} />
+                )}
+            </div>
+
         </div>
     );
 }

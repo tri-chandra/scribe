@@ -15,7 +15,6 @@ export class Consultation {
         this.clinicianId = 'dummy';
         this.patientName = patientName;
         this.note = note;
-        this.audioPath = undefined;
         this.comments = comments;
         this.timestamp = timestamp;
         this.transcript = [];

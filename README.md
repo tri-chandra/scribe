@@ -14,11 +14,6 @@ npm install
 npm start
 ```
 
-Run tests:
-```
-npm test
-```
-
 ### Backend
 
 Run redis:
@@ -40,11 +35,21 @@ npm test
 
 ## Considerations
 
+### Creating consultation record
+
+![Saving consultation record](docs/scribe-flow.svg)
+
+### Fetching saved consultation records
+
+![Fetching consultation record](docs/scribe-flow-2.svg)
+
 Redis pubsub doesnt't have DLQ
 error handling
 pagination, search api, etc
 store data validation
 dto data validation
+manage connections
+login audience control
 
 ### Done
 - FE: recording audio

@@ -118,11 +118,11 @@ export default function HomePage() {
                 {recording.status === 'recorded' && <audio src={audio} controls />}
             </Container>
             <Container>
-                <p>Patient name:</p>
+                <p><strong>Patient name:</strong></p>
                 <input value={patientName} onChange={e => setPatientName(e.target.value)} />
             </Container>
             <Container>
-                <p>Notes:</p>
+                <p><strong>Notes:</strong></p>
                 <textarea
                     rows="8" cols="50"
                     value={note}

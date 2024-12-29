@@ -1,0 +1,18 @@
+.RecordingPageContainer {
+    margin: 32px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.TranscriptList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 4px 0 0;
+    border-right: solid slategray;
+}
+
+.ConsultationDetails {
+    padding-left: 8px;
+    line-height: 3em;
+}

@@ -10,7 +10,7 @@ export default function CommentLineItem({ comment, startTime }) {
 
     return (
         <div className="CommentContainer">
-            <span>
+            <span className="CommentContent">
                 {new Intl.DurationFormat('en', { style: 'digital' }).format(duration)}
             </span>
             <span className="CommentContent">

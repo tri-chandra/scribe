@@ -21,7 +21,6 @@ const recordConsultation = async (audioFile, record) => {
     );
     const savePath = `blob/${newConsultation.id}.webm`;
     fs.rename(audioFile.tempFilePath, savePath, console.log);
-    newConsultation.audioPath = savePath;
 
     const consultation = consultationStore.upsertConsultation(newConsultation);
 

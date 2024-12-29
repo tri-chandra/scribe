@@ -1,0 +1,16 @@
+.Nav {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    list-style-type: none;
+    border-bottom: solid slategray;
+    border-top: solid slategray;
+    padding: 4px;
+}
+
+#root,
+html,
+body,
+.Content {
+    height: 100%;
+}

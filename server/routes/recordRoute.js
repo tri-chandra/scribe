@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 
 import consultationService from '../service/consultationService.js';
 
@@ -22,6 +23,13 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const consultation = consultationService.getConsultation(req.params.id);
     res.send(consultation)
+});
+
+router.get('/:id/audio', (req, res) => {
+    const consultation = consultationService.getConsultation(req.params.id);
+
+    res.contentType('audio/webm');
+    res.sendFile(`${path.resolve()}/blob/${consultation.id}.webm`);
 });
 
 export default router;

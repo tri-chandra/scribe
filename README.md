@@ -46,17 +46,17 @@ npm test
 ### Notes
 - Frontend and backend communicates via REST API.
 - Synchronous flow to store recorded audio file and consultation notes.
-- [Simulated] Either a separate service/library would handle the conversion from audio -> text.
+- [*Simulated*] Either a separate service/library would handle the conversion from audio -> text.
     - This is represented by a "wrapper" `transcriptService.js`.
     - Audio -> text conversion is done asynchronously via a queue (this is simmulated using redis pubsub).
     - There is no DLQ for redis pubsub, so this part is also simulated via `try .. catch` that would publish a message to the topic "DLQ".
-- [Future] I need more time to research about how audio -> text would work.
+- [*Future*] I need to research how audio -> text would work.
     - Whether the library supports any form of chunking:
         - Whether there is a smart way to chunk per sentence,
         - Or, by discreet duration (how would this impact quality or to not cut mid sentence),
         - Any way to do this via streaming?
             - How would retry/resume works in this case?
-- [Simulated] Store is simmulated via an in-memory dictionary
+- [*Simulated*] Store is simulated via an in-memory dictionary
     - Audio file is stored in a blob storage.
     - Audio transcription, I would lean towards no-sql, to accommodate future development, in case more smart features to be added.
     - Patient-related records, I would consider sql, with the consideration that Doctors might want to do complex search/filter in the future (... or is there a better way to store health record??).

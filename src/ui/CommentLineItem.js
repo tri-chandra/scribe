@@ -6,7 +6,7 @@ export default function CommentLineItem({ comment, startTime }) {
         hours: Math.floor(durationInSeconds / 3600),
         minutes: Math.floor((durationInSeconds % 3600) / 60),
         seconds: durationInSeconds % 60
-    }
+    };
 
     return (
         <div className="CommentContainer">

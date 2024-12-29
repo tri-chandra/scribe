@@ -13,7 +13,7 @@ jest.mock('redis', () => {
             connect: jest.fn(),
             publish: jest.fn()
         })
-    }
+    };
 });
 
 describe('consultationService', () => {

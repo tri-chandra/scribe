@@ -17,12 +17,12 @@ router.post('/', async (req, res) => {
 
 router.get('/', (req, res) => {
     const consultations = consultationService.getConsultations();
-    res.send(consultations)
+    res.send(consultations);
 });
 
 router.get('/:id', (req, res) => {
     const consultation = consultationService.getConsultation(req.params.id);
-    res.send(consultation)
+    res.send(consultation);
 });
 
 router.get('/:id/audio', (req, res) => {

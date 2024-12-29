@@ -3,11 +3,11 @@ import {
   Routes,
   Route,
   Link
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import './App.css';
-import HomePage from './ui/HomePage'
-import RecordingPage from './ui/RecordingPage'
+import HomePage from './ui/HomePage';
+import RecordingPage from './ui/RecordingPage';
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { SERVER_URL } from '../config.js';
-import PatientCard from './PatientCard.js'
+import PatientCard from './PatientCard.js';
 
-import './RecordingPage.css'
+import './RecordingPage.css';
 
 export default function RecordingPage() {
     const [consultations, setConsultations] = useState([]);

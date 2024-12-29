@@ -13,9 +13,9 @@ const Unicode = {
     record: '\u23FA',
     stop: '\u23F9',
     upload: '\u23CF'
-}
+};
 
-const AUDIO_MIME_TYPE = 'audio/webm'
+const AUDIO_MIME_TYPE = 'audio/webm';
 
 export default function HomePage() {
     const audioRecorder = useRef(null);

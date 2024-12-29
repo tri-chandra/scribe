@@ -9,7 +9,7 @@ const handleMessage = (message) => {
         transcript
     };
 
-    return consultationStore.upsertConsultation(updatedConsultation)
+    return consultationStore.upsertConsultation(updatedConsultation);
 }
 
 export default {

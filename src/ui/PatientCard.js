@@ -1,4 +1,4 @@
-import CommentLineItem from './CommentLineItem.js'
+import CommentLineItem from './CommentLineItem.js';
 
 import { SERVER_URL } from '../config.js';
 
